@@ -1,8 +1,29 @@
 <templates id="template" xml:space="preserve">
-    <t t-name="pos_custom.EmptyPopup">
-        <Dialog title="Popup">
+    <t t-name="pos_custom.GiftWrapPopup">
+        <Dialog t-props="{'title': props.title}">
             <t t-set-slot="default">
-                <p class="text-center">Select any one gift wrapping pack</p>
+                <div class="gift-wrap-options" style="width: 400px; max-width: 90%;">
+                    <t t-foreach="state.giftWrapProducts" t-as="product" t-key="product.id">
+                        <div class="gift-wrap-item d-flex align-items-center gap-2">
+                            <button class="btn btn-primary m-2 d-flex align-items-center" 
+                                    t-on-click="() => selectGiftWrap(product)"
+                                    style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                                
+                                <!-- Image on the left -->
+                                <t t-if="product.image_128">
+                                    <img t-att-src="'data:image/png;base64,' + product.image_128" 
+                                         class="gift-wrap-img" 
+                                         style="max-width:50px; height:auto;"/>
+                                </t>
+                                
+                                <!-- Name on the right -->
+                                <span class="text-white" style="flex-grow: 1;">
+                                    <t t-esc="product.name"/>
+                                </span>
+                            </button>
+                        </div>
+                    </t>
+                </div>
             </t>
             <t t-set-slot="footer">
                 <button class="btn btn-secondary btn-lg" t-on-click="close">Close</button>
