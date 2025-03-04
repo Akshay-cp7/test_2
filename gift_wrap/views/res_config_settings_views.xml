@@ -1,0 +1,19 @@
+<odoo>
+    <record id="res_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.gift_wrap</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="15"/>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Gift Wrap Toggle -->
+            <xpath expr="//block[@id='product_and_category_block']" position="inside">
+                <setting string="Gift Wrap" help="To activate the gift wrap settings" id="gift_wrap_setting">
+                    <field name="is_gift_wrap"/>
+                    <group>
+                        <field name="gift_wrap_product_id" string="Select Gift Wrap Product" widget="many2one" invisible="not is_gift_wrap" options="{'no_create': False}"/>
+                    </group>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

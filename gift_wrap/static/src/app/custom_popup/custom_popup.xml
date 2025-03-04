@@ -1,0 +1,12 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_custom.EmptyPopup">
+        <Dialog title="Popup">
+            <t t-set-slot="default">
+                <p class="text-center">Select any one gift wrapping pack</p>
+            </t>
+            <t t-set-slot="footer">
+                <button class="btn btn-secondary btn-lg" t-on-click="close">Close</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

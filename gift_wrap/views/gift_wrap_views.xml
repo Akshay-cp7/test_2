@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_mrp_product_template_form_inherited" model="ir.ui.view">
+        <field name="name">product.form.inherited.catch_weight</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_tooltip']" position="after">
+                <field name="gift_wrap" help="This field will indicate whether a product is eligible for gift wrapping.  "/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
